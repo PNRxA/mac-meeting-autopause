@@ -1,6 +1,10 @@
 [package]
 name = "mac-meeting-autopause"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+eframe = "0.30"
+tokio = { version = "1", features = ["full"] }
+regex = "1"
+chrono = "0.4"
