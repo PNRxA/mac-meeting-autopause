@@ -164,13 +164,7 @@ async fn monitor_camera(state: AppState) {
 }
 
 fn pause_music() {
-    // Using osascript to control Apple Music
-    std::process::Command::new("osascript")
-        .args(["-e", "tell application \"Music\" to pause"])
-        .output()
-        .ok();
-
-    // Also try Spotify if it's running
+    // Using osascript to control Spotify
     std::process::Command::new("osascript")
         .args(["-e", "tell application \"Spotify\" to pause"])
         .output()
@@ -178,13 +172,7 @@ fn pause_music() {
 }
 
 fn resume_music() {
-    // Using osascript to control Apple Music
-    std::process::Command::new("osascript")
-        .args(["-e", "tell application \"Music\" to play"])
-        .output()
-        .ok();
-
-    // Also try Spotify if it's running
+    // Using osascript to control Spotify
     std::process::Command::new("osascript")
         .args(["-e", "tell application \"Spotify\" to play"])
         .output()
