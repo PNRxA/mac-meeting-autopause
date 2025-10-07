@@ -2,6 +2,12 @@
 
 A macOS application that automatically pauses and resumes music playback when your camera turns on/off during meetings.
 
+## Download
+
+Download the latest release from [GitHub Releases](https://github.com/pnrxa/mac-meeting-autopause/releases).
+
+**Note:** This app requires **macOS Sequoia (15.0) or later**.
+
 ## Features
 
 - 🎥 Monitors camera status using macOS system logs
@@ -25,6 +31,7 @@ When an app uses your camera:
 
 ## Build & Run
 
+### For Development
 ```bash
 # Build the application
 cargo build --release
@@ -32,6 +39,38 @@ cargo build --release
 # Run the application
 cargo run --release
 ```
+
+### Build macOS App Bundle
+To create a standalone `.app` bundle that runs without a terminal window:
+
+```bash
+./build-app.sh
+```
+
+This creates `Meeting Autopause.app` which you can:
+- Double-click to launch
+- Move to your Applications folder
+- Add to Login Items for automatic startup
+
+## Publishing a New Release
+
+1. Update version in `Cargo.toml`
+2. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Release v1.0.0"
+   ```
+3. Create and push a new tag:
+   ```bash
+   git tag -a v1.0.0 -m "Release version 1.0.0"
+   git push origin main
+   git push origin v1.0.0
+   ```
+4. Build the app bundle:
+   ```bash
+   ./build-app.sh
+   ```
+5. Create a GitHub release with the tag and attach `Meeting Autopause.app` (compressed as `.zip`)
 
 ## Requirements
 
